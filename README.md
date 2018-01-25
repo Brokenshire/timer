@@ -8,7 +8,5 @@ A GUI Countdown clock writen within Python using TkInter framework.
 **Features:**
 
 *Increase/Decrease Time
-
 *Start/Stop/Reset Functions
-
 *Quit button with extra security
