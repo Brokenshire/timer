@@ -2,7 +2,7 @@
 A GUI Countdown clock writen within Python using Tkinter framework.
 
 ScreenShot:
-Python-TkInter-Countdown-Clock/Screenshot.png
+![alt text](https://github.com/Jacko18/Python-TkInter-Countdown-Clock/blob/master/Screenshot.png)
 
 Features:
 . Increase/Decrease Time
