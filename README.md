@@ -1,14 +1,14 @@
 # Python-TkInter-Countdown-Clock
-A GUI Countdown clock writen within Python using Tkinter framework.
+A GUI Countdown clock writen within Python using TkInter framework.
 
-ScreenShot:
+**ScreenShot:**
 
 ![alt text](https://github.com/Jacko18/Python-TkInter-Countdown-Clock/blob/master/Screenshot.png)
 
-Features:
+**Features:**
 
-. Increase/Decrease Time
+*. Increase/Decrease Time
 
-. Start/Stop/Reset Functions
+*. Start/Stop/Reset Functions
 
-. Quit button with extra security
+*. Quit button with extra security
