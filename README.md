@@ -1,4 +1,4 @@
-# Python-TkInter-Countdown-Clock
+# Python: Countdown clock.
 A GUI Countdown clock writen within Python using TkInter framework.
 
 **ScreenShot:**
