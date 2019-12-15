@@ -22,13 +22,13 @@ class Application(tk.Frame):
 
     def build_interface(self):
         """The interface function."""
-        self.clock = tk.Label(self, text="00:00:00")
+        self.clock = tk.Label(self, text="00:00:01")
         self.clock.grid(row=1)
 
         self.power_button = tk.Button(self, text="Start", command=lambda: self.timer(3600))
         self.power_button.grid(row=2, column=0)
 
-        self.reset_button = tk.Button(self, text="Reset", state="disabled")
+        self.reset_button = tk.Button(self, text="Reset", command=lambda: self.reset())
         self.reset_button.grid(row=2, column=1)
 
         self.quit_button = tk.Button(self, text="Quit", command=self.quit)
@@ -40,10 +40,13 @@ class Application(tk.Frame):
             self.hours = t // 3600
             self.mins = (t // 60) % 60 
             self.secs = t % 60
-            timeformat = "{:02d}:{:02d}:{:02d}".format(self.hours, self.mins, self.secs)
-            self.clock.configure(text=timeformat)
+            self.clock["text"] = "{:02d}:{:02d}:{:02d}".format(self.hours, self.mins, self.secs)
             time.sleep(1)
             t -= 1
+
+    def reset(self):
+        """Resets the timer to 0."""
+        self.clock["text"] = "00:00:00"
 
     def quit(self):
         """Ask user if they want to close program. If yes closes, if no goes back to timer."""
