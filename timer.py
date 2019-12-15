@@ -43,8 +43,8 @@ class Application(tk.Frame):
             mins = (t // 60) % 60 
             secs = t % 60
             self.clock.config(text="{:02d}:{:02d}:{:02d}".format(hours, mins, secs))
-            time.sleep(1)
             t -= 1
+            self.clock.after(200, self.timer)
 
     def reset(self):
         """Resets the timer to 0."""
