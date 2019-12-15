@@ -22,7 +22,7 @@ class Application(tk.Frame):
 
     def build_interface(self):
         """The interface function."""
-        self.clock = tk.Label(self, text="00:00:01")
+        self.clock = tk.Label(self)
         self.clock.grid(row=1)
 
         self.power_button = tk.Button(self, text="Start", command=lambda: self.timer(3600))
@@ -34,13 +34,15 @@ class Application(tk.Frame):
         self.quit_button = tk.Button(self, text="Quit", command=self.quit)
         self.quit_button.grid(row=2, column=3)
 
+        root.bind("<Return>", lambda: self.timer(t=3600))
+
     def timer(self, t):
         """Calculates the time to be displayed"""
         while t:
-            self.hours = t // 3600
-            self.mins = (t // 60) % 60 
-            self.secs = t % 60
-            self.clock["text"] = "{:02d}:{:02d}:{:02d}".format(self.hours, self.mins, self.secs)
+            hours = t // 3600
+            mins = (t // 60) % 60 
+            secs = t % 60
+            self.clock.config(text="{:02d}:{:02d}:{:02d}".format(hours, mins, secs))
             time.sleep(1)
             t -= 1
 
