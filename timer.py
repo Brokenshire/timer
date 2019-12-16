@@ -27,17 +27,17 @@ class Application(tk.Frame):
 
     def build_interface(self):
         """The interface function."""
-        self.clock = tk.Label(self)
-        self.clock.grid(row=1)
+        self.clock = tk.Label(self, font=("Courier", 15), width=10)
+        self.clock.grid(row=1, column=1)
 
         self.power_button = tk.Button(self, text="Start", command=lambda: self.start())
-        self.power_button.grid(row=2, column=0)
+        self.power_button.grid(row=2, column=1)
 
         self.stop_button = tk.Button(self, text="Stop", command=lambda: self.stop())
-        self.stop_button.grid(row=2, column=4)
+        self.stop_button.grid(row=2, column=1)
 
         self.reset_button = tk.Button(self, text="Reset", command=lambda: self.reset())
-        self.reset_button.grid(row=2, column=1)
+        self.reset_button.grid(row=2, column=2)
 
         self.quit_button = tk.Button(self, text="Quit", command=lambda: self.quit())
         self.quit_button.grid(row=2, column=3)
