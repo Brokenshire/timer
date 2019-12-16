@@ -19,7 +19,7 @@ class Application(tk.Frame):
         tk.Frame.__init__(self, master, *args, **kwargs)
         self.master = master
         self.running = False
-        self.time = 3600
+        self.time = 0
         self.hours = 0
         self.mins = 0
         self.secs = 0
