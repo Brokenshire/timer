@@ -72,7 +72,7 @@ class Application(tk.Frame):
         self.clock["text"] = "00:00:00"
 
     def quit(self):
-        """Ask user if they want to close program. If yes closes, if no goes back to timer."""
+        """Ask user if they want to close program."""
         if tk.messagebox.askokcancel("Quit", "Do you want to quit?"):
             root.destroy()
    
