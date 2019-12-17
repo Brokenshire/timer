@@ -43,6 +43,22 @@ class Application(tk.Frame):
         self.quit_button.grid(row=2, column=3, sticky="NE")
 
         self.master.bind("<Return>", lambda: self.start())
+        self.time_entry.bind("<Key>", lambda v: self.update())
+
+    def calcualte(self):
+        """Calcualtes the time"""
+        self.hours = self.time // 3600
+        self.mins = (self.time // 60) % 60 
+        self.secs = self.time % 60
+        return "{:02d}:{:02d}:{:02d}".format(self.hours, self.mins, self.secs)
+
+    def update(self):
+        """Checks if valid time entered and updates the timer"""
+        self.time = int(self.time_entry.get())
+        try:
+            self.clock.configure(text=self.calcualte())
+        except:
+            self.clock.configure(text="00:00:00")
 
     def timer(self):
         """Calculates the time to be displayed"""
@@ -50,28 +66,33 @@ class Application(tk.Frame):
             if self.time <= 0:
                 self.clock.configure(text="Time's up!")
             else:
-                self.hours = self.time // 3600
-                self.mins = (self.time // 60) % 60 
-                self.secs = self.time % 60
-                self.clock.configure(text="{:02d}:{:02d}:{:02d}".format(self.hours, self.mins, self.secs))
+                self.clock.configure(text=self.calcualte())
                 self.time -= 1
                 self.after(1000, self.timer)
 
     def start(self):
         """Begins the timer"""
-        self.time = int(self.time_entry.get())
+        print(self.time_entry.get())
+        try:
+            self.time = int(self.time_entry.get())
+            self.time_entry.delete(0, 'end')
+        except:
+            self.time = self.time
         self.power_button.configure(text ="Stop", command=lambda: self.stop())
+        self.master.bind("<Return>", lambda: self.stop())
         self.running = True
         self.timer()
 
     def stop(self):
         """Stops the timer"""
         self.power_button.configure(text ="Start", command=lambda: self.start())
+        self.master.bind("<Return>", lambda: self.start())
         self.running = False
 
     def reset(self):
         """Resets the timer to 0."""
         self.running = False
+        self.time = 0
         self.clock["text"] = "00:00:00"
 
     def quit(self):
