@@ -63,11 +63,13 @@ class Application(tk.Frame):
     def start(self):
         """Begins the timer"""
         self.time = int(self.time_entry.get())
+        self.power_button.configure(text ="Stop", command=lambda: self.stop())
         self.running = True
         self.timer()
 
     def stop(self):
         """Stops the timer"""
+        self.power_button.configure(text ="Start", command=lambda: self.start())
         self.running = False
 
     def reset(self):
