@@ -45,7 +45,7 @@ class Application(tk.Frame):
         self.quit_button = tk.Button(self, text="Quit", command=lambda: self.quit())
         self.quit_button.grid(row=3, column=3, sticky="NE")
 
-        self.master.bind("<Return>", lambda: self.start())
+        self.master.bind("<Return>", lambda x: self.start())
         self.time_entry.bind("<Key>", lambda v: self.update())
 
     def calcualte(self):
@@ -81,20 +81,20 @@ class Application(tk.Frame):
         except:
             self.time = self.time
         self.power_button.configure(text ="Stop", command=lambda: self.stop())
-        self.master.bind("<Return>", lambda: self.stop())
+        self.master.bind("<Return>", lambda x: self.stop())
         self.running = True
         self.timer()
 
     def stop(self):
         """Stops the timer"""
         self.power_button.configure(text ="Start", command=lambda: self.start())
-        self.master.bind("<Return>", lambda: self.start())
+        self.master.bind("<Return>", lambda x: self.start())
         self.running = False
 
     def reset(self):
         """Resets the timer to 0."""
         self.power_button.configure(text ="Start", command=lambda: self.start())
-        self.master.bind("<Return>", lambda: self.start())
+        self.master.bind("<Return>", lambda x: self.start())
         self.running = False
         self.time = 0
         self.clock["text"] = "00:00:00"
