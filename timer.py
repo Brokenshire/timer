@@ -93,6 +93,8 @@ class Application(tk.Frame):
 
     def reset(self):
         """Resets the timer to 0."""
+        self.power_button.configure(text ="Start", command=lambda: self.start())
+        self.master.bind("<Return>", lambda: self.start())
         self.running = False
         self.time = 0
         self.clock["text"] = "00:00:00"
