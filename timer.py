@@ -5,9 +5,6 @@ Author: Jack Brokenshire
 Date: 15/12/2019
 """
 
-# Standard import
-import time
-
 # Third-party imports
 import tkinter as tk
 import tkinter.messagebox
